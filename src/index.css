@@ -4,6 +4,13 @@ body {
   font-family: sans-serif;
 }
 
+.icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 0;
+  height: 23px;
+  width: 40px;
+}
 
 .down {
   background-image: url('../src/Images/Vote_down.svg');
