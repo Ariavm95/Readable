@@ -17,4 +17,6 @@ The server is built in Node, but it is very simple.
     - `npm install`
     - `npm start`
 
+## Deployed version
+I deployed both servers on Heroku; so you can check it out [here](https://readable--app.herokuapp.com/).
 
