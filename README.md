@@ -11,9 +11,9 @@ The server is built in Node, but it is very simple.
     - `cd api-server`
     - `npm install`
     - `node server`
-* Install and start the server for our front-end
+* Install and start the server for the front-end
    
-    - `cd udacity-readable`
+    - `cd Readable-master`
     - `npm install`
     - `npm start`
 
