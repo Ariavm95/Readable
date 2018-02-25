@@ -3,10 +3,17 @@ import { connect } from 'react-redux';
 import {sendPostVote, sendCommentVote} from '../load'
 
 class VoteBar extends Component {
+  constructor(props){
+    super(props)
+    
+  }
+
+ 
 
   render() {
     const {post} = this.props
-    const voteup= () => {(post.parentId) ? this.props.commentVoting(post, "upVote")  : this.props.postVoting(id, "upVote") }
+  
+    const voteup= () => {(post.parentId) ? this.props.commentVoting(post, "upVote")  :  this.props.postVoting(id, "upVote")}
     const votedown= () => {(post.parentId) ? this.props.commentVoting(post, "downVote") : this.props.postVoting(id, "downVote")}
     const id = post.id
 
