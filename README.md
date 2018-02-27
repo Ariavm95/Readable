@@ -19,4 +19,5 @@ The server is built in Node, but it is very simple.
 
 ## Deployed version
 I deployed both servers on Heroku; so you can check it out [here](https://readable--app.herokuapp.com/).
+The Heroku servers go to sleep after some idle time; so it may take some time for the servers to wake up.
 
