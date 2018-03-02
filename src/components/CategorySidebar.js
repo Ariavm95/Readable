@@ -13,14 +13,14 @@ class CategorySidebar extends Component {
  
   /* state = {
     categories: [],
-    // show all posts by default
-    currentCategory: "all posts",
-    selectedOption: this.props.sorttype
+   
+  
 
   } */
   componentDidMount() {
-    this.props.loadCats();
-    
+    if(this.props.categories[0] === undefined){
+      this.props.loadCats();
+    }
   }
   
   handleOptionChange= function (changeEvent) {

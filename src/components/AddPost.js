@@ -6,9 +6,12 @@ import { Redirect } from 'react-router'
 class AddPost extends Component {
     constructor(props) {
         super(props);
+        if(!this.props.categories[0]){
+            this.props.loadCats()
+        }
         this.state = {
             fireRedirect: false,
-            category: this.props.categories[1].name
+            //category: this.props.categories[1].name
           }
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -56,8 +59,14 @@ class AddPost extends Component {
       }
     render() {
         const { fireRedirect } = this.state
+        if((this.props.categories[1] !== undefined) && !(this.state.first)){
+            this.setState({ category: this.props.categories[1].name, first: true })
+        }
+        console.log(this.props.categories[1])
+      
       return (
          <div>
+            {(this.props.categories[1] !== undefined) &&
             <form className="add-edit-form needs-validation" onSubmit={this.add}>
                 <div className="form-group row">
                     <label  className="col-sm-2 col-form-label">Title:</label>
@@ -90,7 +99,7 @@ class AddPost extends Component {
 
                 <button type="submit" className="btn btn-secondary">Submit</button>
 
-            </form>
+            </form>}
             {fireRedirect && (
                 <Redirect to={'/'}/>
             )}

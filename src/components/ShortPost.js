@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import VoteBar from '../components/VoteBar'
 import { Link } from 'react-router-dom'
-import { loadCategories, setCategory} from '../load'
+import { loadCategories, setCategory, removePost} from '../load'
 import { connect } from 'react-redux'
 import {loadPosts} from '../load'
 import formatDate from '../Helper/dateFormat'
@@ -9,8 +9,13 @@ import formatDate from '../Helper/dateFormat'
 
 class ShortPost extends Component {
 
-
+state = {}
+constructor(props){
+    super(props)
+    this.removePost = this.removePost.bind(this)
+}
 componentDidMount() {
+   
     this.props.loadCats();
     this.props.loadPo(this.props.currentCategory)   
 
@@ -23,6 +28,11 @@ componentWillReceiveProps() {
       this.props.loadPo(newCat)
     }
   }
+  removePost = (id,e)=>{
+    e.preventDefault()
+    this.props.deletePost(id)
+    this.props.loadPo(this.state.currentCategory)
+}
 
 render() {
     
@@ -78,6 +88,7 @@ render() {
             <article className="post" key={po+index}>
                 <VoteBar post={po}/>
             <div className="post-main post-header" >
+                
                     <Link to={`${po.category}/${po.id}`} className="post-link post-data">
                         <div className="category">{`Category: ${po.category}`}</div>
                         <h3 className="post-title">{po.title} </h3>
@@ -85,8 +96,13 @@ render() {
                             <div className="author">{`Author: ${po.author}`}</div>
                             <div className="timestamp">{formatDate(po.timestamp)}</div>
                             <div className="comments-short">{`Comments: ${po.commentCount}`}</div>
+                            <div className="edit-delete">
+                                    <button className="ico  edit-delete-button" onClick={(e) => { this.removePost(po.id,e); return false}} ><i className="fa fa-trash"></i></button>
+                                    <Link to={`/${po.category}/${po.id}/edit`} className="ico  edit-delete-button" ><i className="fa fa-pencil"></i>  </Link>
+                            </div>
                         </div>
                     </Link>
+                  
             </div> </article>))
               : <div> <h3>No post to show in this Category </h3></div>
     }
@@ -100,8 +116,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
       loadCats: () => dispatch(loadCategories()),
       loadPo: (category) => dispatch (loadPosts(category)),
-      set_cat: (current) => dispatch(setCategory(current))
-      
+      set_cat: (current) => dispatch(setCategory(current)),
+      deletePost: (postId) => {dispatch(removePost(postId))}
     }
 }
 const mapStateToProps = (state) => {

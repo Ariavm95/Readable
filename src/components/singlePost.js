@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CategorySidebar from './CategorySidebar'
+import Error404 from './Error404'
 import { connect } from 'react-redux'
 import {getPost} from '../load'
 import FullPost from './FullPost'
@@ -52,7 +53,7 @@ class singlePost extends Component {
       <div className="sidebar">
           <CategorySidebar/>
       </div>
-      {((tempPost) && (tempPost.id === this.props.match.params.postId)) && <FullPost post={tempPost} />}
+      {((tempPost) && (tempPost.id === this.props.match.params.postId)) ? <FullPost post={tempPost} /> : <Error404/>}
 
     </div>
 

@@ -86,7 +86,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  max-width: 50%;
+  max-width: 100%;
   align-content: space-between;
   
 }
