@@ -13,7 +13,7 @@ The server is built in Node, but it is very simple.
     - `node server`
 * Install and start the server for the front-end
    
-    - `cd Readable-master`
+    - `cd [project folder]`
     - `npm install`
     - `npm start`
 
