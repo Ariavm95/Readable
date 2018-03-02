@@ -62,7 +62,6 @@ class AddPost extends Component {
         if((this.props.categories[1] !== undefined) && !(this.state.first)){
             this.setState({ category: this.props.categories[1].name, first: true })
         }
-        console.log(this.props.categories[1])
       
       return (
          <div>
