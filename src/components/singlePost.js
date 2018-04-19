@@ -9,7 +9,6 @@ import FullPost from './FullPost'
 class singlePost extends Component {
   constructor(props) {
     super(props);
-    
     //const testPost = props.posts.filter((post) => post.id === props.match.params.postId)
     var postIndex = null
     props.posts.map((post,index) => 
@@ -17,10 +16,7 @@ class singlePost extends Component {
       postIndex = index;
       return;
     }})
- 
-    
     //this.stateChanged = this.stateChanged.bind(this);
-
     if(!postIndex){
       this.props.getpost(this.props.match.params.postId)
     }
@@ -30,16 +26,11 @@ class singlePost extends Component {
       }
     }
   }
-  
-  componentDidMount(){
-    
-  }
 
   render() {
     //this.props.match.params.category ? this.props.setCat(this.props.match.params.category) : this.props.setCat('All')
     const { posts } = this.props
     var tempPost = {}
- 
     if(this.state){
       //tempPost = Object.assign({}, this.state.post)
       tempPost = this.props.posts[this.state.post]
@@ -47,17 +38,13 @@ class singlePost extends Component {
     else{
       tempPost = posts[0] || {}
     }
-    
     return (
-    <div>
-      <div className="sidebar">
-          <CategorySidebar/>
+      <div>
+        <div className="sidebar">
+            <CategorySidebar/>
+        </div>
+        {((tempPost) && (tempPost.id === this.props.match.params.postId)) ? <FullPost post={tempPost} /> : <Error404/>}
       </div>
-      {((tempPost) && (tempPost.id === this.props.match.params.postId)) ? <FullPost post={tempPost} /> : <Error404/>}
-
-    </div>
-
-
     );
   }
 }

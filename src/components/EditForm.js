@@ -29,30 +29,26 @@ class EditForm extends Component {
 
         this.setState({ fireRedirect: true })
       }
-      
-  
+
   render() {
     const po = this.props.post;
     const { fireRedirect } = this.state
-
-   
-    
     //this.props.match.params.category ? this.props.setCat(this.props.match.params.category) : this.props.setCat('All')
-    
     return (
     <div>
-    
         <form onSubmit={this.submitForm}>
             <div className="form-group row" >
                 <label  className="col-sm-2 col-form-label">Title:</label>
                 <div className="col-sm-10">
-                <input type="text" className="form-control" id="inputEmail3"  value={this.state.title } onChange={this.handleTitleChange} required/>
+                <input type="text" className="form-control" id="inputEmail3"  
+                value={this.state.title } onChange={this.handleTitleChange} required/>
                 </div>
             </div>
             <div className="form-group row">
                 <label  className="col-sm-2 col-form-label">Body:</label>
                 <div className="col-sm-10">
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"  value={this.state.body } onChange={this.handleBodyChange} required></textarea>
+                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"  
+                    value={this.state.body } onChange={this.handleBodyChange} required></textarea>
                 </div>
             </div>
             <button type="submit" className="btn btn-secondary" >Submit</button>

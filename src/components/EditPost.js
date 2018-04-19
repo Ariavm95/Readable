@@ -10,10 +10,8 @@ class EditPost extends Component {
   }
   render() {
     //this.props.match.params.category ? this.props.setCat(this.props.match.params.category) : this.props.setCat('All')
-    
     const { posts } = this.props
     const post = posts[0] || {}
-
     return (
     <div>
       <div className="sidebar">

@@ -9,7 +9,6 @@ class CategoryView extends Component {
   
   render() {
     this.props.match.params.category ? this.props.setCat(this.props.match.params.category) : this.props.setCat('All')
-    
     return (
     <div>
       <div>
@@ -19,7 +18,7 @@ class CategoryView extends Component {
       <div class="container-fluid">
         <section className="posts-display">
           <ShortPost/>
-        </section> 
+        </section>
       </div>
     </div>
 

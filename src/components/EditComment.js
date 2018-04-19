@@ -9,7 +9,6 @@ class EditComment extends Component {
         super(props);
         this.state = {
             fireRedirect: false
-
           }
         const parentId = this.props.match.params.postId
         const commentId = this.props.match.params.commentId
@@ -47,7 +46,8 @@ class EditComment extends Component {
                     <div className="form-group row">
                         <label  className="col-sm-2 col-form-label">Comment:</label>
                         <div className="col-sm-10">
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"  value={this.state.body } onChange={this.handleBodyChange} required></textarea>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"  
+                            value={this.state.body } onChange={this.handleBodyChange} required></textarea>
                         </div>
                     </div>
                     <button type="submit" className="btn btn-secondary" >Submit</button>

@@ -15,9 +15,8 @@ constructor(props){
     this.removePost = this.removePost.bind(this)
 }
 componentDidMount() {
-   
     this.props.loadCats();
-    this.props.loadPo(this.props.currentCategory)   
+    this.props.loadPo(this.props.currentCategory)
 
 }
 componentWillReceiveProps() {
@@ -35,9 +34,7 @@ componentWillReceiveProps() {
 }
 
 render() {
-    
     const { sort, posts } = this.props
-
     const sortPosts = () => {
         switch (sort) {
           case "votesUp" :
@@ -79,35 +76,30 @@ render() {
 
         }
       }
-
-
     return (
-    <div>
-    {posts.length > 0 ?
-        sortPosts().map((po,index)=> (
-            <article className="post" key={po+index}>
-                <VoteBar post={po}/>
-                <div className="post-main" >
-                
-                    <Link to={`${po.category}/${po.id}`} className="post-link">
-                        <div className="category">{`Category: ${po.category}`}</div>
-                        <h3 className="post-title">{po.title} </h3>
-                        <div className="post-summary-meta">
-                            <div className="author">{`Author: ${po.author}`}</div>
-                            <div className="timestamp">{formatDate(po.timestamp)}</div>
-                            <div className="comments-short">{`Comments: ${po.commentCount}`}</div>
-                            <div className="edit-delete">
-                                    <button className="ico  edit-delete-button" onClick={(e) => { this.removePost(po.id,e); return false}} ><i className="fa fa-trash"></i></button>
-                                    <Link to={`/${po.category}/${po.id}/edit`} className="ico  edit-delete-button" ><i className="fa fa-pencil"></i>  </Link>
-                            </div>
-                        </div>
-                    </Link>
-                  
-            </div> </article>))
-              : <div> <h3>No post to show in this Category </h3></div>
-    }
-
-    </div>
+        <div>
+            {posts.length > 0 ?
+                sortPosts().map((po,index)=> (
+                    <article className="post" key={po+index}>
+                        <VoteBar post={po}/>
+                        <div className="post-main" >
+                            <Link to={`${po.category}/${po.id}`} className="post-link">
+                                <div className="category">{`Category: ${po.category}`}</div>
+                                <h3 className="post-title">{po.title} </h3>
+                                <div className="post-summary-meta">
+                                    <div className="author">{`Author: ${po.author}`}</div>
+                                    <div className="timestamp">{formatDate(po.timestamp)}</div>
+                                    <div className="comments-short">{`Comments: ${po.commentCount}`}</div>
+                                    <div className="edit-delete">
+                                            <button className="ico  edit-delete-button" onClick={(e) => { this.removePost(po.id,e); return false}} ><i className="fa fa-trash"></i></button>
+                                            <Link to={`/${po.category}/${po.id}/edit`} className="ico  edit-delete-button" ><i className="fa fa-pencil"></i>  </Link>
+                                    </div>
+                                </div>
+                            </Link>
+                    </div> </article>))
+                    : <div> <h3>No post to show in this Category </h3></div>
+            }
+        </div>
     );
   }
 

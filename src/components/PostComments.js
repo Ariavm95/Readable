@@ -4,9 +4,7 @@ import { connect } from 'react-redux'
 import Comment from './Comment'
 
 class PostComments extends Component{
-    componentDidMount(){
-        
-    }
+
     render(){
         const {comments, postId} = this.props
         const sortedComments = comments.sort((a, b) => (b.voteScore-a.voteScore))

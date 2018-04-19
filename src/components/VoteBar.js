@@ -5,10 +5,7 @@ import {sendPostVote, sendCommentVote} from '../load'
 class VoteBar extends Component {
   constructor(props){
     super(props)
-    
   }
-
- 
 
   render() {
     const {post} = this.props
@@ -20,16 +17,11 @@ class VoteBar extends Component {
     return (
      <div className="post-sidebar">
       <div className="voting">
-        <div className="up icon" onClick={voteup}>
-        </div>
+        <div className="up icon" onClick={voteup}></div>
         <div className="vote icon">{post.voteScore}</div>
-        <div className="down icon" onClick={votedown}>
-
-        </div>
+        <div className="down icon" onClick={votedown}></div>
       </div>
     </div>
-
-
     );
   }
 }
@@ -37,7 +29,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     postVoting: (postId, vote) => dispatch(sendPostVote(postId, vote)),
     commentVoting: (postId, vote) => dispatch(sendCommentVote(postId, vote))
-
   }
 }
 

@@ -20,9 +20,6 @@ class App extends Component {
         <Route exact path="/:category" render={props => <CategoryView {...props} />}/>
         <Route exact path="/:category/:postId" component={singlePost}/>
         <Route exact path="/:category/:postId/edit" component={EditPost}/>
-        
-    
-        
       </Switch>
 
 

@@ -39,9 +39,7 @@ class CategorySidebar extends Component {
     const { categories, currentCategory } = this.props
 
     return (
-     <div class="sidebar">
- 
-
+     <div className="sidebar">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <Link className="navbar-brand" to="/All">Category</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,12 +82,9 @@ class CategorySidebar extends Component {
               </label>
               </div>
             </form>
-
           </div>
         </nav>
     </div>
-
-
     );
   }
 }

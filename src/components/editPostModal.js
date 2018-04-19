@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import EditPostContent from './EditPostContent'
 import { connect } from 'react-redux'
-
 import { reset } from 'redux-form'
 import Modal from 'react-modal'
 import {editPost} from '../load'
@@ -19,7 +18,7 @@ class EditPostModal extends Component {
     modalOpen: false
   }
 
-    openModal = () => this.setState(() => ({ modalOpen: true }))
+  openModal = () => this.setState(() => ({ modalOpen: true }))
   closeModal = () => this.setState(() => ({ modalOpen: false }))
 
   editPost = (post) => {
@@ -49,8 +48,6 @@ class EditPostModal extends Component {
     return (
       <div className="post-changes"> 
         <Modal
-          
-          
           isOpen={modalOpen}
           onRequestClose={this.closeModal}
           contentLabel='Modal'
@@ -60,9 +57,7 @@ class EditPostModal extends Component {
             initialValues={post}
             onSubmit={this.editPost} />}
         </Modal>
-        
         <div  onClick={this.openModal}>Edit</div>
-        
       </div>
     )
   }
@@ -74,7 +69,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updatePost: (post) => dispatch(editPost(post)),
     resetPostForm: () => dispatch(reset('postForm')),
-    
   }
 }
 

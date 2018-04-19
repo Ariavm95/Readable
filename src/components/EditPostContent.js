@@ -55,9 +55,7 @@ const renderInputField = ({
 class EditPostContent extends Component {
 
   render() {
-
     const { initialValues, handleSubmit } = this.props
-    
     return (
       <form onSubmit={handleSubmit} className="post-form">
         <Field
@@ -68,7 +66,6 @@ class EditPostContent extends Component {
           placeholder="Post title"
           className="post-form-title"
           label="Title"
-          
         />
         <Field
           name="body"
