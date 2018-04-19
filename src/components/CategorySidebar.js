@@ -39,20 +39,19 @@ class CategorySidebar extends Component {
     const { categories, currentCategory } = this.props
 
     return (
-     <div>
+     <div class="sidebar">
  
 
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <Link className="navbar-brand" to="/All">Category</Link>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <Link className="navbar-brand" to="/All">Category</Link>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
               {categories.map((cat, index) =>  (<li key={cat.name} className={cat.name === this.props.currentCategory ? "nav-item active" :"nav-item" }> <Link to={`/${cat.path}`} className="nav-link" >{cat.name}</Link>
               </li>))}
-            </ul>
-
+              </ul>
             <form>
             <div className="btn-group btn-group-toggle my-2 my-lg-0"  >
             <label className="btn  btn-secondary disabled" id="label-btn">

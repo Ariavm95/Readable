@@ -12,13 +12,15 @@ class CategoryView extends Component {
     
     return (
     <div>
-      <div className="sidebar">
+      <div>
           <CategorySidebar/>
       </div>
-    <Link to="/addpost" className="btn btn-secondary btn-block add-post"> Compose Post</Link>
-      <section className="posts-display">
-        <ShortPost/>
-      </section> 
+      <Link to="/addpost" className="btn btn-secondary btn-block add-post"> Compose Post</Link>
+      <div class="container-fluid">
+        <section className="posts-display">
+          <ShortPost/>
+        </section> 
+      </div>
     </div>
 
     );

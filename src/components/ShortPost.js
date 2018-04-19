@@ -87,9 +87,9 @@ render() {
         sortPosts().map((po,index)=> (
             <article className="post" key={po+index}>
                 <VoteBar post={po}/>
-            <div className="post-main post-header" >
+                <div className="post-main" >
                 
-                    <Link to={`${po.category}/${po.id}`} className="post-link post-data">
+                    <Link to={`${po.category}/${po.id}`} className="post-link">
                         <div className="category">{`Category: ${po.category}`}</div>
                         <h3 className="post-title">{po.title} </h3>
                         <div className="post-summary-meta">
